@@ -99,8 +99,10 @@ class GenerateVideoScreenshots
         if (empty($output_path) && empty($this->output_path)) {
             $video_path_explode = explode('/', $this->video_file);
             $path = str_replace(end($video_path_explode), '', $this->video_file);
-        } else {
+        } elseif (!empty($output_path)) {
             $path = $output_path;
+        } else {
+            $path = $this->output_path;
         }
 
         if (!is_dir($path)) {
