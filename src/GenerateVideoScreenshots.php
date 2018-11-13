@@ -68,7 +68,7 @@ class GenerateVideoScreenshots
 
         $screenshot_path = $this->output_path . '/' . $screenshot_name;
 
-        $command = 'ffmpeg -i '.$video_file.' -ss 00:00:01 -vframes 1 ' . $screenshot_path . ' 2>&1';
+        $command = $this->ffmpeg .' -i '.$video_file.' -ss 00:00:01 -vframes 1 ' . $screenshot_path . ' 2>&1';
 
         $output = shell_exec($command);
 
